@@ -9,21 +9,17 @@ export class CHModCheckbox {
   /**
    * The first name
    */
-  @Prop() first: string;
+  @Prop() first: string = "READ";
 
   /**
    * The middle name
    */
-  @Prop() middle: string;
+  @Prop() middle: string = "WRITE";
 
   /**
    * The last name
    */
-  @Prop() last: string;
-
-  // private getText(): string {
-  //   return format(this.first, this.middle, this.last);
-  // }
+  @Prop() last: string = "EXECUTE";
 
   render() {
     return (
@@ -35,7 +31,7 @@ export class CHModCheckbox {
               <label htmlFor="read">
                 <span></span>
               </label>
-              <span class="content-text-style">READ</span>
+              <span class="content-text-style">{this.first}</span>
             </div>
           </form>
         </div>
@@ -46,7 +42,7 @@ export class CHModCheckbox {
               <label htmlFor="write">
                 <span></span>
               </label>
-              <span class="content-text-style">WRITE</span>
+              <span class="content-text-style">{this.middle}</span>
             </div>
           </form>
         </div>
@@ -57,7 +53,7 @@ export class CHModCheckbox {
               <label htmlFor="execute">
                 <span></span>
               </label>
-              <span class="content-text-style">EXECUTE</span>
+              <span class="content-text-style">{this.last}</span>
             </div>
           </form>
         </div>
