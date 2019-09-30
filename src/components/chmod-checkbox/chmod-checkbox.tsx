@@ -27,16 +27,40 @@ export class CHModCheckbox {
 
   render() {
     return (
-      <div class="animated-checkbox">
-        <form>
-          <div class="flex-center-vertically">
-            <input name="check" type="checkbox" id="hello" />
-            <label htmlFor="hello">
-              <span></span>
-            </label>
-            <span class="content-text-style"> </span>
-          </div>
-        </form>
+      <div class="wrapper">
+        <div class="column1 animated-checkbox">
+          <form>
+            <div class="flex-center-vertically">
+              <input name="check" type="checkbox" id="read" />
+              <label htmlFor="read">
+                <span></span>
+              </label>
+              <span class="content-text-style">READ</span>
+            </div>
+          </form>
+        </div>
+        <div class="column2 animated-checkbox">
+          <form>
+            <div class="flex-center-vertically">
+              <input name="check" type="checkbox" id="write" />
+              <label htmlFor="write">
+                <span></span>
+              </label>
+              <span class="content-text-style">WRITE</span>
+            </div>
+          </form>
+        </div>
+        <div class="column3 animated-checkbox">
+          <form>
+            <div class="flex-center-vertically">
+              <input name="check" type="checkbox" id="execute" />
+              <label htmlFor="execute">
+                <span></span>
+              </label>
+              <span class="content-text-style">EXECUTE</span>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
