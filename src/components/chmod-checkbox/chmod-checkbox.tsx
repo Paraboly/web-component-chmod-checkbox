@@ -1,4 +1,5 @@
 import { Component, Prop, h } from "@stencil/core";
+import { calculatePermission } from "../../utils/utils";
 
 @Component({
   tag: "chmod-checkbox",
@@ -9,17 +10,22 @@ export class CHModCheckbox {
   /**
    * The first name
    */
-  @Prop() first: string = "READ";
+  @Prop({ mutable: true }) first: string = "READ";
 
   /**
    * The middle name
    */
-  @Prop() middle: string = "WRITE";
+  @Prop({ mutable: true }) middle: string = "WRITE";
 
   /**
    * The last name
    */
-  @Prop() last: string = "EXECUTE";
+  @Prop({ mutable: true }) last: string = "EXECUTE";
+
+  @Prop() permissionValue: number = 0;
+  @Prop() isReadChecked: boolean = false;
+  @Prop() isWriteChecked: boolean = false;
+  @Prop() isExecuteChecked: boolean = false;
 
   render() {
     return (
@@ -27,7 +33,20 @@ export class CHModCheckbox {
         <div class="column1 animated-checkbox">
           <form>
             <div class="flex-center-vertically">
-              <input name="check" type="checkbox" id="read" />
+              <input
+                id="read"
+                name="check"
+                type="checkbox"
+                checked={this.isReadChecked}
+                onChange={() => {
+                  this.isReadChecked = !this.isReadChecked;
+                  this.permissionValue = calculatePermission(
+                    "read",
+                    this.isReadChecked,
+                    this.permissionValue
+                  );
+                }}
+              />
               <label htmlFor="read">
                 <span></span>
               </label>
@@ -38,7 +57,20 @@ export class CHModCheckbox {
         <div class="column2 animated-checkbox">
           <form>
             <div class="flex-center-vertically">
-              <input name="check" type="checkbox" id="write" />
+              <input
+                id="write"
+                name="check"
+                type="checkbox"
+                checked={this.isWriteChecked}
+                onChange={() => {
+                  this.isWriteChecked = !this.isWriteChecked;
+                  this.permissionValue = calculatePermission(
+                    "write",
+                    this.isWriteChecked,
+                    this.permissionValue
+                  );
+                }}
+              />
               <label htmlFor="write">
                 <span></span>
               </label>
@@ -49,7 +81,20 @@ export class CHModCheckbox {
         <div class="column3 animated-checkbox">
           <form>
             <div class="flex-center-vertically">
-              <input name="check" type="checkbox" id="execute" />
+              <input
+                id="execute"
+                name="check"
+                type="checkbox"
+                checked={this.isExecuteChecked}
+                onChange={() => {
+                  this.isExecuteChecked = !this.isExecuteChecked;
+                  this.permissionValue = calculatePermission(
+                    "execute",
+                    this.isExecuteChecked,
+                    this.permissionValue
+                  );
+                }}
+              />
               <label htmlFor="execute">
                 <span></span>
               </label>

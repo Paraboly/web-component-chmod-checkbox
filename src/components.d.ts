@@ -14,6 +14,9 @@ export namespace Components {
     * The first name
     */
     'first': string;
+    'isExecuteChecked': boolean;
+    'isReadChecked': boolean;
+    'isWriteChecked': boolean;
     /**
     * The last name
     */
@@ -22,6 +25,7 @@ export namespace Components {
     * The middle name
     */
     'middle': string;
+    'permissionValue': number;
   }
 }
 
@@ -44,6 +48,9 @@ declare namespace LocalJSX {
     * The first name
     */
     'first'?: string;
+    'isExecuteChecked'?: boolean;
+    'isReadChecked'?: boolean;
+    'isWriteChecked'?: boolean;
     /**
     * The last name
     */
@@ -52,6 +59,7 @@ declare namespace LocalJSX {
     * The middle name
     */
     'middle'?: string;
+    'permissionValue'?: number;
   }
 
   interface IntrinsicElements {
