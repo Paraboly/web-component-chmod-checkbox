@@ -2,7 +2,7 @@
 <img alt="WebComponent Chmod Checkbox" src="assets/logo.png" width="1050"/>
 
 
-[![CHMOD based animated checkbox WebComponent with StencilJS](https://img.shields.io/badge/-React%20Native%20Library%20Boilerplate-lightgrey?style=for-the-badge)](https://github.com/WrathChaos/web-component-chmod-checkbox)
+[![CHMOD based animated checkbox WebComponent with StencilJS](https://img.shields.io/badge/-CHMOD%20based%20animated%20checkbox%20WebComponent%20with%20StencilJS-lightgrey?style=for-the-badge)](https://github.com/WrathChaos/web-component-chmod-checkbox)
 
 
 [![npm version](https://img.shields.io/npm/v/chmod-checkbox.svg?style=for-the-badge)](https://www.npmjs.com/package/chmod-checkbox)
