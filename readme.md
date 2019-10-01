@@ -75,6 +75,7 @@ Chmod Checkbox comes with three (3) animated checkbox which includes READ, WRITE
 
 - [x] ~~LICENSE~~
 - [ ] Customizable colors
+- [ ] Make another web-component with just animated checkbox and implement it on this library
 - [ ] Write an article about the lib on Medium
 
 
