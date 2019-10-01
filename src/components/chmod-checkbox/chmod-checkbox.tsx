@@ -37,6 +37,7 @@ export class CHModCheckbox {
                 id="read"
                 name="check"
                 type="checkbox"
+                value={this.permission}
                 onChange={() => {
                   this.isReadChecked = !this.isReadChecked;
                   this.permission = calculatePermission(
@@ -60,6 +61,7 @@ export class CHModCheckbox {
                 id="write"
                 name="check"
                 type="checkbox"
+                value={this.permission}
                 onChange={() => {
                   this.isWriteChecked = !this.isWriteChecked;
                   this.permission = calculatePermission(
@@ -83,6 +85,7 @@ export class CHModCheckbox {
                 id="execute"
                 name="check"
                 type="checkbox"
+                value={this.permission}
                 onChange={() => {
                   this.isExecuteChecked = !this.isExecuteChecked;
                   this.permission = calculatePermission(
