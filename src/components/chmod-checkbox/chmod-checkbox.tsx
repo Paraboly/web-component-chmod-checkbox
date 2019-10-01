@@ -22,7 +22,7 @@ export class CHModCheckbox {
    */
   @Prop() last: string = "EXECUTE";
 
-  @State() permission: number = 0;
+  @Prop({ mutable: true, reflect: true }) permission: number = 0;
   @Prop() isReadChecked: boolean = false;
   @Prop() isWriteChecked: boolean = false;
   @Prop() isExecuteChecked: boolean = false;
