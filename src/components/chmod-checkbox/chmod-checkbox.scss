@@ -2,11 +2,11 @@ $base-color: #66ab1b;
 $second-color: #fff;
 
 .animated-checkbox {
-  display: table-cell; // to center the item
   width: 100%;
   height: 100%;
-  vertical-align: middle; // to center the item
   text-align: center; // to center the item
+  display: table-cell; // to center the item
+  vertical-align: middle; // to center the item
 }
 
 .flex-center-vertically {
@@ -23,29 +23,28 @@ $second-color: #fff;
 }
 
 label {
-  display: inline-block; // to make it easier to click
-  color: $base-color;
   cursor: pointer;
+  color: $base-color;
   position: relative; // important
+  display: inline-block; // to make it easier to click
 
   // Now we'll create the checkbox object
   span {
-    display: inline-block;
-    position: relative;
-    background-color: transparent;
     width: 25px;
     height: 25px;
-    transform-origin: center;
-    border: 2px solid $base-color;
     border-radius: 50%;
-    vertical-align: -6px;
     margin-right: 10px;
+    position: relative;
     box-sizing: initial;
+    vertical-align: -6px;
+    display: inline-block;
+    transform-origin: center;
+    background-color: transparent;
+    border: 2px solid $base-color;
     transition: background-color 150ms 200ms,
       transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89); // custom ease effect for bouncy animation
 
     // Now we'll create the "tick" using pseudo elements - those will be basically two lines that will be rotated to form the "tick"
-
     &:before {
       content: "";
       width: 0px;
@@ -65,13 +64,13 @@ label {
       width: 0;
       height: 2px;
       border-radius: 2px; // so that the tick has nice rounded look
-      background: $base-color;
       position: absolute;
-      transform: rotate(305deg);
-      top: 16px; // you'll need to experiment with placement depending on the dimensions you've chosen
-      left: 10px; // you'll need to experiment with placement depending on the dimensions you've chosen
-      transition: width 50ms ease;
       transform-origin: 0% 0%;
+      background: $base-color;
+      transform: rotate(305deg);
+      transition: width 50ms ease;
+      left: 10px; // you'll need to experiment with placement depending on the dimensions you've chosen
+      top: 16px; // you'll need to experiment with placement depending on the dimensions you've chosen
     }
   }
   // Time to add some life to it
@@ -139,9 +138,8 @@ input[type="checkbox"] {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .column1 {
@@ -156,136 +154,3 @@ input[type="checkbox"] {
   grid-column: 3;
   grid-row: 3;
 }
-
-/**
-* Bootstrap CSS
-*/
-
-// .col-xl-1,
-// .col-xxl-1,
-// .col-xxxl-1,
-// .col-xl-2,
-// .col-xxl-2,
-// .col-md-2,
-// .col-xxxl-2,
-// .col-xl-3,
-// .col-xxl-3,
-// .col-md-3,
-// .col-xxxl-3,
-// .col-xl-4,
-// .col-xxl-4,
-// .col-md-4,
-// .col-xxxl-4,
-// .col-xl-5,
-// .col-xxl-5,
-// .col-md-5,
-// .col-xxxl-5,
-// .col-xl-6,
-// .col-xxl-6,
-// .col-md-6,
-// .col-xxxl-6,
-// .col-xl-7,
-// .col-xxl-7,
-// .col-md-7,
-// .col-xxxl-7,
-// .col-xl-8,
-// .col-xxl-8,
-// .col-md-8,
-// .col-xxxl-8,
-// .col-xl-9,
-// .col-xxl-9,
-// .col-md-9,
-// .col-xxxl-9,
-// .col-xl-10,
-// .col-xxl-100,
-// .col-xxxl-10,
-// .col-xl-11,
-// .col-xxl-111,
-// .col-xxxl-11,
-// .col-xl-12,
-// .col-xxl-122,
-// .col-xxxl-12 {
-//   position: relative;
-//   min-height: 1px;
-//   padding-right: 15px;
-//   padding-left: 15px;
-// }
-// @media (min-width: 992px) {
-//   .col-md-4 {
-//     width: 33.33333333%;
-//   }
-// }
-// @media (min-width: 992px) {
-//   .col-md-1,
-//   .col-md-10,
-//   .col-md-11,
-//   .col-md-12,
-//   .col-md-2,
-//   .col-md-3,
-//   .col-md-4,
-//   .col-md-5,
-//   .col-md-6,
-//   .col-md-7,
-//   .col-md-8,
-//   .col-md-9 {
-//     float: left;
-//   }
-// }
-// .col-lg-1,
-// .col-lg-10,
-// .col-lg-11,
-// .col-lg-12,
-// .col-lg-2,
-// .col-lg-3,
-// .col-lg-4,
-// .col-lg-5,
-// .col-lg-6,
-// .col-lg-7,
-// .col-lg-8,
-// .col-lg-9,
-// .col-md-1,
-// .col-md-10,
-// .col-md-11,
-// .col-md-12,
-// .col-md-2,
-// .col-md-3,
-// .col-md-4,
-// .col-md-5,
-// .col-md-6,
-// .col-md-7,
-// .col-md-8,
-// .col-md-9,
-// .col-sm-1,
-// .col-sm-10,
-// .col-sm-11,
-// .col-sm-12,
-// .col-sm-2,
-// .col-sm-3,
-// .col-sm-4,
-// .col-sm-5,
-// .col-sm-6,
-// .col-sm-7,
-// .col-sm-8,
-// .col-sm-9,
-// .col-xs-1,
-// .col-xs-10,
-// .col-xs-11,
-// .col-xs-12,
-// .col-xs-2,
-// .col-xs-3,
-// .col-xs-4,
-// .col-xs-5,
-// .col-xs-6,
-// .col-xs-7,
-// .col-xs-8,
-// .col-xs-9 {
-//   position: relative;
-//   min-height: 1px;
-//   padding-right: 15px;
-//   padding-left: 15px;
-// }
-
-// .row {
-//   margin-right: -15px;
-//   margin-left: -15px;
-// }
