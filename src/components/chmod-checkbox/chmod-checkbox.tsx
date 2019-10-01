@@ -10,19 +10,19 @@ export class CHModCheckbox {
   /**
    * The first name
    */
-  @Prop({ mutable: true }) first: string = "READ";
+  @Prop() first: string = "READ";
 
   /**
    * The middle name
    */
-  @Prop({ mutable: true }) middle: string = "WRITE";
+  @Prop() middle: string = "WRITE";
 
   /**
    * The last name
    */
-  @Prop({ mutable: true }) last: string = "EXECUTE";
+  @Prop() last: string = "EXECUTE";
 
-  @Prop() permissionValue: number = 0;
+  @Prop({ mutable: true, reflect: true }) permission: number = 0;
   @Prop() isReadChecked: boolean = false;
   @Prop() isWriteChecked: boolean = false;
   @Prop() isExecuteChecked: boolean = false;
@@ -37,13 +37,12 @@ export class CHModCheckbox {
                 id="read"
                 name="check"
                 type="checkbox"
-                checked={this.isReadChecked}
                 onChange={() => {
                   this.isReadChecked = !this.isReadChecked;
-                  this.permissionValue = calculatePermission(
+                  this.permission = calculatePermission(
                     "read",
                     this.isReadChecked,
-                    this.permissionValue
+                    this.permission
                   );
                 }}
               />
@@ -61,13 +60,12 @@ export class CHModCheckbox {
                 id="write"
                 name="check"
                 type="checkbox"
-                checked={this.isWriteChecked}
                 onChange={() => {
                   this.isWriteChecked = !this.isWriteChecked;
-                  this.permissionValue = calculatePermission(
+                  this.permission = calculatePermission(
                     "write",
                     this.isWriteChecked,
-                    this.permissionValue
+                    this.permission
                   );
                 }}
               />
@@ -85,13 +83,12 @@ export class CHModCheckbox {
                 id="execute"
                 name="check"
                 type="checkbox"
-                checked={this.isExecuteChecked}
                 onChange={() => {
                   this.isExecuteChecked = !this.isExecuteChecked;
-                  this.permissionValue = calculatePermission(
+                  this.permission = calculatePermission(
                     "execute",
                     this.isExecuteChecked,
-                    this.permissionValue
+                    this.permission
                   );
                 }}
               />
