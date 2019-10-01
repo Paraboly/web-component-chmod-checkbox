@@ -25,7 +25,6 @@ export namespace Components {
     * The middle name
     */
     'middle': string;
-    'permission': number;
   }
 }
 
@@ -59,7 +58,6 @@ declare namespace LocalJSX {
     * The middle name
     */
     'middle'?: string;
-    'permission'?: number;
   }
 
   interface IntrinsicElements {
