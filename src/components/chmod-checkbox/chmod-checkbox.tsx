@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Listen, Event } from "@stencil/core";
+import { Component, Prop, h, State } from "@stencil/core";
 import { calculatePermission } from "../../utils/utils";
 
 @Component({
@@ -14,8 +14,6 @@ export class CHModCheckbox {
   @Prop() isWriteChecked: boolean = false;
   @Prop() isExecuteChecked: boolean = false;
   @State() permission: number = 0;
-
-  @Event() handleEvent: CustomEvent;
 
   render() {
     return (
