@@ -42,6 +42,11 @@ export class CHModCheckbox {
    */
   @Prop() isExecuteChecked: boolean = false;
 
+  /**
+   *
+   */
+  @Prop({ reflect: true }) base: string = "";
+
   render() {
     return (
       <div class="wrapper">

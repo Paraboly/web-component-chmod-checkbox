@@ -62,6 +62,16 @@ Chmod Checkbox comes with three (3) animated checkbox which includes READ, WRITE
 <chmod-checkbox permission="0" />
 ```
 
+## How to get value from a prop?
+
+```javascript
+document.querySelectorAll("chmod-checkbox")[0].base
+document.querySelectorAll("chmod-checkbox")[0].permission
+document.querySelectorAll("chmod-checkbox")[0].first
+document.querySelectorAll("chmod-checkbox")[0].middle
+document.querySelectorAll("chmod-checkbox")[0].last
+
+```
 
 ### Configuration - Props
 

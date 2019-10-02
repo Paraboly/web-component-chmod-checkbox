@@ -10,21 +10,34 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface ChmodCheckbox {
+    'base': string;
     /**
-    * The first name
+    * The first button text
     */
     'first': string;
+    /**
+    * Stores the checkbox value when last one is changed
+    */
     'isExecuteChecked': boolean;
+    /**
+    * Stores the checkbox value when first one is changed
+    */
     'isReadChecked': boolean;
+    /**
+    * Stores the checkbox value when middle one is changed
+    */
     'isWriteChecked': boolean;
     /**
-    * The last name
+    * The last button text
     */
     'last': string;
     /**
-    * The middle name
+    * The middle button text
     */
     'middle': string;
+    /**
+    * Main mutable permission value depends on the selection of checkboxes
+    */
     'permission': number;
   }
 }
@@ -44,21 +57,34 @@ declare global {
 
 declare namespace LocalJSX {
   interface ChmodCheckbox {
+    'base'?: string;
     /**
-    * The first name
+    * The first button text
     */
     'first'?: string;
+    /**
+    * Stores the checkbox value when last one is changed
+    */
     'isExecuteChecked'?: boolean;
+    /**
+    * Stores the checkbox value when first one is changed
+    */
     'isReadChecked'?: boolean;
+    /**
+    * Stores the checkbox value when middle one is changed
+    */
     'isWriteChecked'?: boolean;
     /**
-    * The last name
+    * The last button text
     */
     'last'?: string;
     /**
-    * The middle name
+    * The middle button text
     */
     'middle'?: string;
+    /**
+    * Main mutable permission value depends on the selection of checkboxes
+    */
     'permission'?: number;
   }
 
