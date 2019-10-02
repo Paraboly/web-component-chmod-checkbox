@@ -13,7 +13,7 @@ export class CHModCheckbox {
   @Prop() isReadChecked: boolean = false;
   @Prop() isWriteChecked: boolean = false;
   @Prop() isExecuteChecked: boolean = false;
-  @State() permission: number = 0;
+  @Prop({ mutable: true, reflect: true }) permission: number = 0;
 
   render() {
     return (
