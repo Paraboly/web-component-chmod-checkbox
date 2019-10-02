@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 import { calculatePermission } from "../../utils/utils";
 
 @Component({
@@ -7,13 +7,40 @@ import { calculatePermission } from "../../utils/utils";
   shadow: true
 })
 export class CHModCheckbox {
+  /**
+   * The first button text
+   */
   @Prop() first: string = "READ";
+
+  /**
+   * The middle button text
+   */
   @Prop() middle: string = "WRITE";
+
+  /**
+   * The last button text
+   */
   @Prop() last: string = "EXECUTE";
-  @Prop() isReadChecked: boolean = false;
-  @Prop() isWriteChecked: boolean = false;
-  @Prop() isExecuteChecked: boolean = false;
+
+  /**
+   * Main mutable permission value depends on the selection of checkboxes
+   */
   @Prop({ mutable: true, reflect: true }) permission: number = 0;
+
+  /**
+   * Stores the checkbox value when first one is changed
+   */
+  @Prop() isReadChecked: boolean = false;
+
+  /**
+   * Stores the checkbox value when middle one is changed
+   */
+  @Prop() isWriteChecked: boolean = false;
+
+  /**
+   * Stores the checkbox value when last one is changed
+   */
+  @Prop() isExecuteChecked: boolean = false;
 
   render() {
     return (
@@ -26,7 +53,6 @@ export class CHModCheckbox {
                 name="check"
                 type="checkbox"
                 value={this.permission}
-                checked={this.isReadChecked}
                 onChange={() => {
                   this.isReadChecked = !this.isReadChecked;
                   this.permission = calculatePermission(
@@ -51,7 +77,6 @@ export class CHModCheckbox {
                 name="check"
                 type="checkbox"
                 value={this.permission}
-                checked={this.isWriteChecked}
                 onChange={() => {
                   this.isWriteChecked = !this.isWriteChecked;
                   this.permission = calculatePermission(
@@ -76,7 +101,6 @@ export class CHModCheckbox {
                 name="check"
                 type="checkbox"
                 value={this.permission}
-                checked={this.isExecuteChecked}
                 onChange={() => {
                   this.isExecuteChecked = !this.isExecuteChecked;
                   this.permission = calculatePermission(
