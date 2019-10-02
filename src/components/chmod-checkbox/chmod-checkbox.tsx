@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, State, Listen, Event } from "@stencil/core";
 import { calculatePermission } from "../../utils/utils";
 
 @Component({
@@ -7,25 +7,15 @@ import { calculatePermission } from "../../utils/utils";
   shadow: true
 })
 export class CHModCheckbox {
-  /**
-   * The first name
-   */
   @Prop() first: string = "READ";
-
-  /**
-   * The middle name
-   */
   @Prop() middle: string = "WRITE";
-
-  /**
-   * The last name
-   */
   @Prop() last: string = "EXECUTE";
-
-  @Prop({ mutable: true, reflect: true }) permission: number = 0;
   @Prop() isReadChecked: boolean = false;
   @Prop() isWriteChecked: boolean = false;
   @Prop() isExecuteChecked: boolean = false;
+  @State() permission: number = 0;
+
+  @Event() handleEvent: CustomEvent;
 
   render() {
     return (
@@ -38,6 +28,7 @@ export class CHModCheckbox {
                 name="check"
                 type="checkbox"
                 value={this.permission}
+                checked={this.isReadChecked}
                 onChange={() => {
                   this.isReadChecked = !this.isReadChecked;
                   this.permission = calculatePermission(
@@ -62,6 +53,7 @@ export class CHModCheckbox {
                 name="check"
                 type="checkbox"
                 value={this.permission}
+                checked={this.isWriteChecked}
                 onChange={() => {
                   this.isWriteChecked = !this.isWriteChecked;
                   this.permission = calculatePermission(
@@ -86,6 +78,7 @@ export class CHModCheckbox {
                 name="check"
                 type="checkbox"
                 value={this.permission}
+                checked={this.isExecuteChecked}
                 onChange={() => {
                   this.isExecuteChecked = !this.isExecuteChecked;
                   this.permission = calculatePermission(

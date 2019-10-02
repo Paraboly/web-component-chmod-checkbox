@@ -20,9 +20,3 @@ export function calculatePermission(
   console.log("Permission: ", permission);
   return permission;
 }
-
-export function format(first: string, middle: string, last: string): string {
-  return (
-    (first || "") + (middle ? ` ${middle}` : "") + (last ? ` ${last}` : "")
-  );
-}
