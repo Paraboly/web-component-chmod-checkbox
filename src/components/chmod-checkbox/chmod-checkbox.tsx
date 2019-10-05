@@ -1,5 +1,8 @@
-import { Component, Prop, h } from "@stencil/core";
-import { calculatePermission } from "../../utils/utils";
+import { Component, Prop, h, State } from "@stencil/core";
+import {
+  calculatePermission,
+  checkIfDecodePermission
+} from "../../utils/utils";
 
 @Component({
   tag: "chmod-checkbox",
@@ -30,17 +33,17 @@ export class CHModCheckbox {
   /**
    * Stores the checkbox value when first one is changed
    */
-  @Prop() isReadChecked: boolean = false;
+  @State() isReadChecked: boolean = false;
 
   /**
    * Stores the checkbox value when middle one is changed
    */
-  @Prop() isWriteChecked: boolean = false;
+  @State() isWriteChecked: boolean = false;
 
   /**
    * Stores the checkbox value when last one is changed
    */
-  @Prop() isExecuteChecked: boolean = false;
+  @State() isExecuteChecked: boolean = false;
 
   /**
    *
@@ -57,7 +60,7 @@ export class CHModCheckbox {
                 id="read"
                 name="check"
                 type="checkbox"
-                value={this.permission}
+                checked={checkIfDecodePermission(this.permission, ["read"])}
                 onChange={() => {
                   this.isReadChecked = !this.isReadChecked;
                   this.permission = calculatePermission(
@@ -81,7 +84,7 @@ export class CHModCheckbox {
                 id="write"
                 name="check"
                 type="checkbox"
-                value={this.permission}
+                checked={checkIfDecodePermission(this.permission, ["write"])}
                 onChange={() => {
                   this.isWriteChecked = !this.isWriteChecked;
                   this.permission = calculatePermission(
@@ -105,7 +108,7 @@ export class CHModCheckbox {
                 id="execute"
                 name="check"
                 type="checkbox"
-                value={this.permission}
+                checked={checkIfDecodePermission(this.permission, ["execute"])}
                 onChange={() => {
                   this.isExecuteChecked = !this.isExecuteChecked;
                   this.permission = calculatePermission(

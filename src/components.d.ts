@@ -16,18 +16,6 @@ export namespace Components {
     */
     'first': string;
     /**
-    * Stores the checkbox value when last one is changed
-    */
-    'isExecuteChecked': boolean;
-    /**
-    * Stores the checkbox value when first one is changed
-    */
-    'isReadChecked': boolean;
-    /**
-    * Stores the checkbox value when middle one is changed
-    */
-    'isWriteChecked': boolean;
-    /**
     * The last button text
     */
     'last': string;
@@ -62,18 +50,6 @@ declare namespace LocalJSX {
     * The first button text
     */
     'first'?: string;
-    /**
-    * Stores the checkbox value when last one is changed
-    */
-    'isExecuteChecked'?: boolean;
-    /**
-    * Stores the checkbox value when first one is changed
-    */
-    'isReadChecked'?: boolean;
-    /**
-    * Stores the checkbox value when middle one is changed
-    */
-    'isWriteChecked'?: boolean;
     /**
     * The last button text
     */
