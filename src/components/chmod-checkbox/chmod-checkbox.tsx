@@ -33,17 +33,23 @@ export class CHModCheckbox {
   /**
    * Stores the checkbox value when first one is changed
    */
-  @State() isReadChecked: boolean = false;
+  @State()
+  isReadChecked: boolean = checkIfDecodePermission(this.permission, ["read"]);
 
   /**
    * Stores the checkbox value when middle one is changed
    */
-  @State() isWriteChecked: boolean = false;
+  @State() isWriteChecked: boolean = checkIfDecodePermission(this.permission, [
+    "write"
+  ]);
 
   /**
    * Stores the checkbox value when last one is changed
    */
-  @State() isExecuteChecked: boolean = false;
+  @State() isExecuteChecked: boolean = checkIfDecodePermission(
+    this.permission,
+    ["execute"]
+  );
 
   /**
    *
@@ -60,9 +66,10 @@ export class CHModCheckbox {
                 id="read"
                 name="check"
                 type="checkbox"
-                checked={checkIfDecodePermission(this.permission, ["read"])}
+                checked={this.isReadChecked}
                 onChange={() => {
                   this.isReadChecked = !this.isReadChecked;
+                  console.log("isReadChecked: ", this.isReadChecked);
                   this.permission = calculatePermission(
                     "read",
                     this.isReadChecked,
@@ -84,7 +91,7 @@ export class CHModCheckbox {
                 id="write"
                 name="check"
                 type="checkbox"
-                checked={checkIfDecodePermission(this.permission, ["write"])}
+                checked={this.isWriteChecked}
                 onChange={() => {
                   this.isWriteChecked = !this.isWriteChecked;
                   this.permission = calculatePermission(
@@ -108,7 +115,7 @@ export class CHModCheckbox {
                 id="execute"
                 name="check"
                 type="checkbox"
-                checked={checkIfDecodePermission(this.permission, ["execute"])}
+                checked={this.isExecuteChecked}
                 onChange={() => {
                   this.isExecuteChecked = !this.isExecuteChecked;
                   this.permission = calculatePermission(

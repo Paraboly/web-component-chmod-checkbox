@@ -2,25 +2,27 @@ import _ from "lodash";
 
 export const calculatePermission = (
   type: string = "read",
-  logic: boolean = true,
-  permission: number = 0
+  isChecked: boolean,
+  permission: number
 ) => {
+  let _permission = permission;
   switch (type) {
     case "read":
-      permission = logic === true ? permission + 1 : permission - 1;
+      _permission = isChecked ? _permission + 1 : _permission - 1;
       break;
     case "write":
-      permission = logic === true ? permission + 2 : permission - 2;
+      _permission = isChecked ? _permission + 2 : _permission - 2;
       break;
     case "execute":
-      permission = logic === true ? permission + 4 : permission - 4;
+      _permission = isChecked ? _permission + 4 : _permission - 4;
       break;
     default:
-      return permission;
+      return _permission;
   }
-  permission < 0 ? (permission = 0) : permission;
-  console.log("Util Calculated Permission: ", permission);
-  return permission;
+  _permission < 0 ? (_permission = 0) : _permission;
+  _permission > 7 ? (_permission = 7) : _permission;
+  console.log("Util Calculated Permission: ", _permission);
+  return _permission;
 };
 
 export const decodePermission = (permission: number) => {
