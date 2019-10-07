@@ -31,30 +31,20 @@ export class CHModCheckbox {
   @Prop({ mutable: true, reflect: true }) permission: number = 0;
 
   /**
-   * Stores the checkbox value when first one is changed
-   */
-  @State()
-  isReadChecked: boolean = checkIfDecodePermission(this.permission, ["read"]);
-
-  /**
-   * Stores the checkbox value when middle one is changed
-   */
-  @State() isWriteChecked: boolean = checkIfDecodePermission(this.permission, [
-    "write"
-  ]);
-
-  /**
-   * Stores the checkbox value when last one is changed
-   */
-  @State() isExecuteChecked: boolean = checkIfDecodePermission(
-    this.permission,
-    ["execute"]
-  );
-
-  /**
    *
    */
   @Prop({ reflect: true }) base: string = "";
+
+  isChecked = type => {
+    return checkIfDecodePermission(this.permission, [type]);
+  };
+
+  onChange = (event, type) => {
+    console.log(event);
+    console.log(event.target.checked);
+    const checked = event.target.checked;
+    this.permission = calculatePermission(type, checked, this.permission);
+  };
 
   render() {
     return (
@@ -63,19 +53,9 @@ export class CHModCheckbox {
           <form>
             <div class="flex-center-vertically">
               <input
-                id="read"
-                name="check"
                 type="checkbox"
-                checked={this.isReadChecked}
-                onChange={() => {
-                  this.isReadChecked = !this.isReadChecked;
-                  console.log("isReadChecked: ", this.isReadChecked);
-                  this.permission = calculatePermission(
-                    "read",
-                    this.isReadChecked,
-                    this.permission
-                  );
-                }}
+                checked={this.isChecked("read")}
+                onChange={(event: UIEvent) => this.onChange(event, "read")}
               />
               <label htmlFor="read">
                 <span></span>
@@ -88,18 +68,9 @@ export class CHModCheckbox {
           <form>
             <div class="flex-center-vertically">
               <input
-                id="write"
-                name="check"
                 type="checkbox"
-                checked={this.isWriteChecked}
-                onChange={() => {
-                  this.isWriteChecked = !this.isWriteChecked;
-                  this.permission = calculatePermission(
-                    "write",
-                    this.isWriteChecked,
-                    this.permission
-                  );
-                }}
+                checked={this.isChecked("write")}
+                onChange={(event: UIEvent) => this.onChange(event, "write")}
               />
               <label htmlFor="write">
                 <span></span>
@@ -112,18 +83,9 @@ export class CHModCheckbox {
           <form>
             <div class="flex-center-vertically">
               <input
-                id="execute"
-                name="check"
                 type="checkbox"
-                checked={this.isExecuteChecked}
-                onChange={() => {
-                  this.isExecuteChecked = !this.isExecuteChecked;
-                  this.permission = calculatePermission(
-                    "execute",
-                    this.isExecuteChecked,
-                    this.permission
-                  );
-                }}
+                checked={this.isChecked("execute")}
+                onChange={(event: UIEvent) => this.onChange(event, "execute")}
               />
               <label htmlFor="execute">
                 <span></span>
