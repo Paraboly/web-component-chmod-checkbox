@@ -7,8 +7,8 @@
 [![CHMOD based animated checkbox WebComponent with StencilJS](https://img.shields.io/badge/-CHMOD%20based%20animated%20checkbox%20WebComponent%20with%20StencilJS-lightgrey?style=for-the-badge)](https://github.com/WrathChaos/web-component-chmod-checkbox)
 
 
-[![npm version](https://img.shields.io/npm/v/chmod-checkbox.svg?style=for-the-badge)](https://www.npmjs.com/package/chmod-checkbox)
-[![npm](https://img.shields.io/npm/dt/chmod-checkbox.svg?style=for-the-badge)](https://www.npmjs.com/package/chmod-checkbox)
+[![npm version](https://img.shields.io/npm/v/@paraboly/chmod-checkbox.svg?style=for-the-badge)](https://www.npmjs.com/package/@paraboly/chmod-checkbox)
+[![npm](https://img.shields.io/npm/dt/@paraboly/chmod-checkbox.svg?style=for-the-badge)](https://www.npmjs.com/package/@paraboly/chmod-checkbox)
 ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
@@ -49,17 +49,17 @@ npm i @paraboly/pwc-animated-checkbox
 
 
 ### Script tag (Recommended: Painless)
-- Put a script tag similar to this `<script src="https://unpkg.com/chmod-checkbox@latest/dist/chmod-checkbox.js"></script>` in the head of your index.html
+- Put a script tag similar to this `<script src="https://unpkg.com/@paraboly/chmod-checkbox@latest/dist/chmod-checkbox.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
-- Run `npm install chmod-checkbox --save`
-- Put a script tag similar to this `<script src='node_modules/chmod-checkbox/dist/chmod-checkbox.js'></script>` in the head of your index.html
+- Run `npm install @paraboly/chmod-checkbox --save`
+- Put a script tag similar to this `<script src='node_modules/@paraboly/chmod-checkbox/dist/chmod-checkbox.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
-- Run `npm install chmod-checkbox --save`
-- Add an import to the npm packages `import chmod-checkbox;`
+- Run `npm install @paraboly/chmod-checkbox --save`
+- Add an import to the npm packages `import @paraboly/chmod-checkbox;`
 - Then you can use the element anywhere in your template, JSX, html etc
 
 # Usage

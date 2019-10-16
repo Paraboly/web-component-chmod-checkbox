@@ -1,6 +1,6 @@
 {
   "name": "@paraboly/chmod-checkbox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple and ready to use chmod based checkbox web component with StencilJS",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
