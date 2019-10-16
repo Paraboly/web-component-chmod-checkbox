@@ -43,6 +43,8 @@ Chmod Checkbox comes with three (3) animated checkbox which includes READ, WRITE
 
 This peer dependency is essential for this library! You need to install it
 
+### [pwc-animated-checkbox](https://github.com/Paraboly/pwc-animated-checkbox)
+
 ```js
 npm i @paraboly/pwc-animated-checkbox
 ```
