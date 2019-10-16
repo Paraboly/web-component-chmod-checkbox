@@ -1,6 +1,6 @@
 {
   "name": "chmod-checkbox",
-  "version": "0.0.41",
+  "version": "0.0.5",
   "description": "Simple and ready to use chmod based checkbox web component with StencilJS",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -10,6 +10,9 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/chmod-checkbox/chmod-checkbox.js",
+  "repository": "git@github.com:Paraboly/web-component-chmod-checkbox.git",
+  "author": "Kuray (FreakyCoder) <kurayogun@gmail.com>",
+  "license": "MIT",
   "files": [
     "dist/",
     "loader/"
@@ -25,7 +28,6 @@
     "@stencil/core": "^1.3.3",
     "@stencil/sass": "^1.0.1"
   },
-  "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.15"
   }
