@@ -14,13 +14,10 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
 
-
-
 <p align="center">
   <img alt="WebComponent Chmod Checkbox" src="assets/Screenshots/example.gif" />
   <img alt="WebComponent Chmod Checkbox" src="assets/Screenshots/example.png" />
 </p>
-
 
 Chmod Checkbox comes with three (3) animated checkbox which includes READ, WRITE and EXECUTE values. These text values are customizable. It has built-in chmod calculator for each value. 
 
@@ -41,6 +38,15 @@ Chmod Checkbox comes with three (3) animated checkbox which includes READ, WRITE
 
 
 ## Installation
+
+## First Install the Peer Dependency
+
+This peer dependency is essential for this library! You need to install it
+
+```js
+npm i @paraboly/pwc-animated-checkbox
+```
+
 
 ### Script tag (Recommended: Painless)
 - Put a script tag similar to this `<script src="https://unpkg.com/chmod-checkbox@latest/dist/chmod-checkbox.js"></script>` in the head of your index.html
@@ -64,8 +70,7 @@ Chmod Checkbox comes with three (3) animated checkbox which includes READ, WRITE
 
 ## How to get value from a prop?
 
-```javascript
-document.querySelectorAll("chmod-checkbox")[0].base
+```js
 document.querySelectorAll("chmod-checkbox")[0].permission
 document.querySelectorAll("chmod-checkbox")[0].first
 document.querySelectorAll("chmod-checkbox")[0].middle
