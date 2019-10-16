@@ -29,6 +29,7 @@
     "@stencil/sass": "^1.0.1"
   },
   "dependencies": {
+    "@paraboly/pwc-animated-checkbox": "0.0.2",
     "lodash": "^4.17.15"
   }
 }

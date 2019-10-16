@@ -21,7 +21,7 @@ export const calculatePermission = (
   }
   _permission < 0 ? (_permission = 0) : _permission;
   _permission > 7 ? (_permission = 7) : _permission;
-  console.log("Util Calculated Permission: ", _permission);
+  console.log("CHMod Checkbox Calculated Permission: ", _permission);
   return _permission;
 };
 
@@ -55,4 +55,8 @@ export const checkIfDecodePermission = (
   const founded = _.intersection(decodePermission(permission), types);
   if (founded) return founded.length > 0;
   return false;
+};
+
+export const isChecked = (permission, type) => {
+  return checkIfDecodePermission(permission, [type]);
 };

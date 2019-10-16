@@ -1,8 +1,7 @@
-import { Component, Prop, h, State } from "@stencil/core";
-import {
-  calculatePermission,
-  checkIfDecodePermission
-} from "../../utils/utils";
+import { Component, Prop, h } from "@stencil/core";
+import { isChecked, calculatePermission } from "../../utils/utils";
+import { READ, WRITE, EXECUTE, EVENT_LISTENER } from "../../utils/constants";
+import "@paraboly/pwc-animated-checkbox";
 
 @Component({
   tag: "chmod-checkbox",
@@ -31,68 +30,56 @@ export class CHModCheckbox {
   @Prop({ mutable: true, reflect: true }) permission: number = 0;
 
   /**
-   *
+   * Read, Write & Execute Checkbox Input Elements
    */
-  @Prop({ reflect: true }) base: string = "";
+  readCI: HTMLPwcAnimatedCheckboxElement;
+  writeCI: HTMLPwcAnimatedCheckboxElement;
+  executeCI: HTMLPwcAnimatedCheckboxElement;
 
-  isChecked = type => {
-    return checkIfDecodePermission(this.permission, [type]);
-  };
+  componentDidLoad() {
+    this.subscribeListeners();
+  }
 
-  onChange = (event, type) => {
-    console.log(event);
-    console.log(event.target.checked);
-    const checked = event.target.checked;
-    this.permission = calculatePermission(type, checked, this.permission);
+  subscribeListeners = () => {
+    this.readCI.addEventListener(EVENT_LISTENER, (event: any) => {
+      const { checked } = event.detail;
+      this.permission = calculatePermission(READ, checked, this.permission);
+    });
+
+    this.writeCI.addEventListener(EVENT_LISTENER, (event: any) => {
+      const { checked } = event.detail;
+      this.permission = calculatePermission(WRITE, checked, this.permission);
+    });
+
+    this.executeCI.addEventListener(EVENT_LISTENER, (event: any) => {
+      const { checked } = event.detail;
+      this.permission = calculatePermission(EXECUTE, checked, this.permission);
+    });
   };
 
   render() {
     return (
       <div class="wrapper">
-        <div class="column1 animated-checkbox">
-          <form>
-            <div class="flex-center-vertically">
-              <input
-                type="checkbox"
-                checked={this.isChecked("read")}
-                onChange={(event: UIEvent) => this.onChange(event, "read")}
-              />
-              <label htmlFor="read">
-                <span></span>
-              </label>
-              <span class="content-text-style">{this.first}</span>
-            </div>
-          </form>
+        <div class="column1">
+          <pwc-animated-checkbox
+            checkboxText={this.first}
+            isChecked={isChecked(this.permission, READ)}
+            ref={el => (this.readCI = el as HTMLPwcAnimatedCheckboxElement)}
+          />
         </div>
-        <div class="column2 animated-checkbox">
-          <form>
-            <div class="flex-center-vertically">
-              <input
-                type="checkbox"
-                checked={this.isChecked("write")}
-                onChange={(event: UIEvent) => this.onChange(event, "write")}
-              />
-              <label htmlFor="write">
-                <span></span>
-              </label>
-              <span class="content-text-style">{this.middle}</span>
-            </div>
-          </form>
+        <div class="column2">
+          <pwc-animated-checkbox
+            checkboxText={this.middle}
+            isChecked={isChecked(this.permission, WRITE)}
+            ref={el => (this.writeCI = el as HTMLPwcAnimatedCheckboxElement)}
+          />
         </div>
-        <div class="column3 animated-checkbox">
-          <form>
-            <div class="flex-center-vertically">
-              <input
-                type="checkbox"
-                checked={this.isChecked("execute")}
-                onChange={(event: UIEvent) => this.onChange(event, "execute")}
-              />
-              <label htmlFor="execute">
-                <span></span>
-              </label>
-              <span class="content-text-style">{this.last}</span>
-            </div>
-          </form>
+        <div class="column3">
+          <pwc-animated-checkbox
+            checkboxText={this.last}
+            isChecked={isChecked(this.permission, EXECUTE)}
+            ref={el => (this.executeCI = el as HTMLPwcAnimatedCheckboxElement)}
+          />
         </div>
       </div>
     );

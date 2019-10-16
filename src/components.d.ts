@@ -10,7 +10,6 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface ChmodCheckbox {
-    'base': string;
     /**
     * The first button text
     */
@@ -45,7 +44,6 @@ declare global {
 
 declare namespace LocalJSX {
   interface ChmodCheckbox {
-    'base'?: string;
     /**
     * The first button text
     */
