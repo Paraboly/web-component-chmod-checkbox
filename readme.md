@@ -92,7 +92,7 @@ document.querySelectorAll("chmod-checkbox")[0].last
 
 - [x] ~~LICENSE~~
 - [ ] Customizable colors
-- [ ] Make another web-component with just animated checkbox and implement it on this library
+- [x] ~~Make another web-component with just animated checkbox and implement it on this library~~
 - [ ] Write an article about the lib on Medium
 
 
